@@ -11,11 +11,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../bower_components/app-pouchdb/app-pouchdb-document.html">
+<link rel="import" href="../bower_components/app-pouchdb/app-pouchdb-sync.html">
 <link rel="import" href="../bower_components/iron-input/iron-input.html">
 
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="garcianavalon-example1">
+<dom-module id="garcianavalon-example3">
   <template>
     <style include="shared-styles">
       :host {
@@ -26,13 +27,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <h1>Using a local Pouchdb</h1>
+      <h1>Syncing local PouchDB with remote CouchDB</h1>
+
+      <app-pouchdb-sync
+          src="local"
+          target="http://localhost:5984/remote"
+          bidirectional>
+      </app-pouchdb-sync>
 
       <app-pouchdb-document
         db-name="local"
         doc-id="whateverdocid"
         data="{{exampleDoc}}">
       </app-pouchdb-document>
+
       <div class="">
         Document name: [[exampleDoc.name]]
       </div>
@@ -45,7 +53,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: 'garcianavalon-example1',
+      is: 'garcianavalon-example3',
 
       properties: {
         exampleDoc: Object,
