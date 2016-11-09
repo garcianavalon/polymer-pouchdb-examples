@@ -1,0 +1,8 @@
+version: '2'
+services:
+  couchdb:
+    image: klaemo/couchdb:2.0.0
+    ports:
+      - "5984:5984"
+    volumes:
+      - "/usr/local/var/lib/couchdb"
