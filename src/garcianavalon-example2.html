@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../bower_components/app-pouchdb/app-pouchdb-document.html">
+<link rel="import" href="../bower_components/app-pouchdb/app-pouchdb-conflict-resolution.html">
 <link rel="import" href="../bower_components/iron-input/iron-input.html">
 
 <link rel="import" href="shared-styles.html">
@@ -28,6 +29,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="card">
       <h1>Using a remote CouchDB</h1>
 
+      <app-pouchdb-conflict-resolution
+          strategy="lastWriteWins">
+      </app-pouchdb-conflict-resolution>
+      
       <app-pouchdb-document
         db-name="http://localhost:5984/remote"
         doc-id="whateverdocid"
@@ -40,6 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           is="iron-input"
           bind-value="{{exampleDoc.name}}">
       </input>
+
     </div>
   </template>
 
