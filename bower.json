@@ -17,7 +17,8 @@
     "paper-icon-button": "PolymerElements/paper-icon-button#~1.1.0",
     "polymer": "Polymer/polymer#^1.6.0",
     "app-pouchdb": "PolymerElements/app-pouchdb#^0.9.2",
-    "iron-input": "PolymerElements/iron-input#^1.0.10"
+    "iron-input": "PolymerElements/iron-input#^1.0.10",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

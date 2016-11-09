@@ -1,0 +1,86 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-input/iron-input.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="garcianavalon-example4">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <h1>Querying a remote CouchDB with AJAX</h1>
+
+      <div class="">
+        All Documents: [[_dump(exampleDocs)]]
+      </div>
+
+      <div class="">
+        Example document: [[_dump(exampleDoc)]]
+      </div>
+
+      <iron-ajax
+        id="ajax"
+        url="http://localhost:5984/remote/_all_docs"
+        handle-as="json"
+        last-response="{{exampleDocs}}"
+        debounce-duration="300">
+      </iron-ajax>
+
+      <iron-ajax
+        id="ajax2"
+        url="http://localhost:5984/remote/whateverdocid"
+        handle-as="json"
+        last-response="{{exampleDoc}}"
+        debounce-duration="300"
+        on-response="ajaxResponseHandler">
+      </iron-ajax>
+
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'garcianavalon-example4',
+
+      properties: {
+        exampleDocs: Object,
+
+        exampleDoc: Object,
+
+      },
+
+      ready: function() {
+        this.$.ajax.generateRequest();
+        this.$.ajax2.generateRequest();
+        console.log('ajax request!');
+      },
+
+      ajaxResponseHandler: function(event) {
+        console.log('ajax response!');
+      },
+
+      _dump: function(stuff) {
+        return JSON.stringify(stuff);
+      },
+
+    });
+  </script>
+</dom-module>
