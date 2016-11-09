@@ -15,7 +15,10 @@ module.exports = {
   ],
   navigateFallback: '/index.html',
   navigateFallbackWhitelist: [
-    /^\/garcianavalon-example1\//, 
+    /^\/garcianavalon-example1\//,
+    /^\/garcianavalon-example2\//,
+    /^\/garcianavalon-example3\//,
+    /^\/garcianavalon-example4\//,
     /^\/garcianavalon-view404\//
   ]
 };
