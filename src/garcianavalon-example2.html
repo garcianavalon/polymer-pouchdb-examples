@@ -15,7 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="garcianavalon-example1">
+<dom-module id="garcianavalon-example2">
   <template>
     <style include="shared-styles">
       :host {
@@ -26,10 +26,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <h1>Using a local Pouchdb</h1>
+      <h1>Using a remote CouchDB</h1>
 
       <app-pouchdb-document
-        db-name="example1"
+        db-name="http://localhost:5984/example2"
         doc-id="whateverdocid"
         data="{{exampleDoc}}">
       </app-pouchdb-document>
@@ -45,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: 'garcianavalon-example1',
+      is: 'garcianavalon-example2',
 
       properties: {
         exampleDoc: Object,
