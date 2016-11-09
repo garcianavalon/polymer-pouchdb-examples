@@ -19,6 +19,7 @@ module.exports = {
     /^\/garcianavalon-example2\//,
     /^\/garcianavalon-example3\//,
     /^\/garcianavalon-example4\//,
+    /^\/garcianavalon-example5\//,
     /^\/garcianavalon-view404\//
   ]
 };
